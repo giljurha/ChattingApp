@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+
 import com.test.chatting.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -29,9 +30,9 @@ class LoginActivity : AppCompatActivity() {
             Firebase.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "이메일 또는 패스워드가 입력되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "회원가입에 성공했습니다. 로그인해주세요.", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this, "이메일 또는 패스워드가 입력되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
                     }
 
                 }
@@ -50,10 +51,10 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
-                        Toast.makeText(this, "이메일 또는 패스워드가 입력되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "회원가입에 성공했습니다. 로그인해주세요.", Toast.LENGTH_SHORT).show()
                     } else {
                         Log.e("LoginActivity", task.exception.toString())
-                        Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
